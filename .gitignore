@@ -102,3 +102,14 @@ dist
 
 # TernJS port file
 .tern-port
+
+# JetBrain IDE
+.idea
+
+# Webpack
+.webpack
+
+lib
+gen
+
+/*.secrets
