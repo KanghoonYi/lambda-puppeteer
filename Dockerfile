@@ -11,7 +11,7 @@ ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
 FROM set-variable-layer as builder
 
 # root level file copy
-COPY package*.json tsconfig.json ${LAMBDA_TASK_ROOT}/
+COPY package*.json ${LAMBDA_TASK_ROOT}/
 COPY src ${LAMBDA_TASK_ROOT}/src
 
 WORKDIR ${LAMBDA_TASK_ROOT}/
@@ -63,6 +63,6 @@ ENV AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
     AWS_REGION=$AWS_REGION
 
 # Copy files into the container
-COPY --from=builder ${SERVICE_PATH}/.webpack/service ${LAMBDA_TASK_ROOT}
+COPY --from=builder ${LAMBDA_TASK_ROOT}/ ${LAMBDA_TASK_ROOT}
 
 CMD [ "src/functions/handler1/handler.main" ]
